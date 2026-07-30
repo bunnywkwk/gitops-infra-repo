@@ -1,0 +1,5 @@
+# Ignore unencrypted local secret files
+postgres/postgres-secret.yaml
+*.secret
+*.env
+.DS_Store

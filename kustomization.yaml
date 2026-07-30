@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - postgres/postgres-configmap.yaml
+  - postgres/postgres-service.yaml
+  - postgres/postgres-statefulset.yaml
+  - deployments/fastapi-deployment.yaml
+  - deployments/fastapi-service.yaml
+  # Secrets are managed out-of-band via 'kubectl create secret' or via SealedSecret controller
+  # - postgres/postgres-sealedsecret.yaml
