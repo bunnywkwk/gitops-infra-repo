@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fastapi-app
-  namespace: default
+
   labels:
     app.kubernetes.io/name: fastapi-app
     app.kubernetes.io/part-of: gitops-pipeline
