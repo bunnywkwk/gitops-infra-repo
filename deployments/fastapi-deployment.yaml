@@ -24,6 +24,8 @@ spec:
         - containerPort: 8000
           name: http
         env:
+        - name: ENVIRONMENT
+          value: "PRODUCTION"
         - name: POSTGRES_HOST
           value: "postgres"
         - name: POSTGRES_PORT
