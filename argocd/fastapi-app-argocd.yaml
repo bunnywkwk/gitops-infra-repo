@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: fastapi-gitops-app
+  name: fastapi-gitops-app-prod
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,11 +9,34 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/bunnywkwk/gitops-infra-repo.git'
-    targetRevision: HEAD
+    targetRevision: main
     path: '.'
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fastapi-gitops-app-staging
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/bunnywkwk/gitops-infra-repo.git'
+    targetRevision: staging
+    path: '.'
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: staging
   syncPolicy:
     automated:
       prune: true
