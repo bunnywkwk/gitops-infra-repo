@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: fastapi-app
-        image: bunnywkwk/fastapi-app:staging-5da66b2
+        image: bunnywkwk/fastapi-app:main-b32ab54
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
